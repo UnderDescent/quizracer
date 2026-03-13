@@ -1,0 +1,372 @@
+[
+  {
+    "question": "Bridgetown is the capital of which island country in the Carribean?",
+    "answer": "Barbados",
+    "option1": "Cuba",
+    "option2": "Jamaica&lrm;",
+    "option3": "Dominica",
+    "imgsrc": "none",
+    "difficulty": "medium",
+    "subject": "Geography"
+  },
+  {
+    "question": "In Animal Crossing, who is the manager of the town shop?",
+    "answer": "Tom Nook",
+    "option1": "Mr. Resetti",
+    "option2": "Gracie",
+    "option3": "K.K. Slider",
+    "imgsrc": "none",
+    "difficulty": "easy",
+    "subject": "Entertainment: Video Games"
+  },
+  {
+    "question": "What is the collective noun for bears?",
+    "answer": "Sloth",
+    "option1": "Drove",
+    "option2": "Tribe",
+    "option3": "Husk",
+    "imgsrc": "none",
+    "difficulty": "medium",
+    "subject": "Animals"
+  },
+  {
+    "question": "Which dictator killed the most people?",
+    "answer": "Mao Zedong",
+    "option1": "Joseph Stalin",
+    "option2": "Adolf Hitler",
+    "option3": "Kim Il Sung",
+    "imgsrc": "none",
+    "difficulty": "medium",
+    "subject": "History"
+  },
+  {
+    "question": "What amount of bits commonly equals one byte?",
+    "answer": "8",
+    "option1": "1",
+    "option2": "2",
+    "option3": "64",
+    "imgsrc": "none",
+    "difficulty": "easy",
+    "subject": "Science: Computers"
+  },
+  {
+    "question": "How many French Open's did Bj&ouml;rn Borg win?",
+    "answer": "6",
+    "option1": "4",
+    "option2": "9",
+    "option3": "2",
+    "imgsrc": "none",
+    "difficulty": "medium",
+    "subject": "Sports"
+  },
+  {
+    "question": "What is centralism?",
+    "answer": " Concentration of power and authority in a central organization.",
+    "option1": "Conforming to one single common political agenda.",
+    "option2": "Remaining politically neutral.",
+    "option3": "The grey area in the spectrum of political left and right.",
+    "imgsrc": "none",
+    "difficulty": "hard",
+    "subject": "Politics"
+  },
+  {
+    "question": "Which popular jazz standard begins with the line \"Someday, when I'm awfully low\"?",
+    "answer": "The Way You Look Tonight",
+    "option1": "Autumn Leaves",
+    "option2": "Dream a Little Dream of Me",
+    "option3": "All the Things You Are",
+    "imgsrc": "none",
+    "difficulty": "medium",
+    "subject": "Entertainment: Music"
+  },
+  {
+    "question": "Which retro video game was released first?",
+    "answer": "Space Invaders",
+    "option1": "Galaga",
+    "option2": "Pac-Man",
+    "option3": "Asteroids",
+    "imgsrc": "none",
+    "difficulty": "hard",
+    "subject": "Entertainment: Video Games"
+  },
+  {
+    "question": "What is Gabe Newell's favorite class in Team Fortress 2?",
+    "answer": "Spy",
+    "option1": "Heavy",
+    "option2": "Medic",
+    "option3": "Pyro",
+    "imgsrc": "none",
+    "difficulty": "easy",
+    "subject": "Entertainment: Video Games"
+  },
+  {
+    "question": "What tool lends it's name to a last-stone advantage in an end in Curling?",
+    "answer": "Hammer",
+    "option1": "Wrench",
+    "option2": "Drill",
+    "option3": "Screwdriver",
+    "imgsrc": "none",
+    "difficulty": "hard",
+    "subject": "Sports"
+  },
+  {
+    "question": "What is the name of the main character in the webcomic Gunnerkrigg Court by Tom Siddell?",
+    "answer": "Antimony",
+    "option1": "Bismuth",
+    "option2": "Mercury",
+    "option3": "Cobalt",
+    "imgsrc": "none",
+    "difficulty": "medium",
+    "subject": "Entertainment: Comics"
+  },
+  {
+    "question": "Chino Moreno is the lead singer of which alternative metal band?",
+    "answer": "Deftones",
+    "option1": "Tool",
+    "option2": "Korn",
+    "option3": "Type O Negative",
+    "imgsrc": "none",
+    "difficulty": "hard",
+    "subject": "Entertainment: Music"
+  },
+  {
+    "question": "What do you study if you are studying entomology?",
+    "answer": "Insects",
+    "option1": "Humans",
+    "option2": "the Brain",
+    "option3": "Fish",
+    "imgsrc": "none",
+    "difficulty": "medium",
+    "subject": "Science &amp; Nature"
+  },
+  {
+    "question": "In the TV show \"Mad Men\", what was Donald Draper's birthname?",
+    "answer": "Richard \"Dick\" Whitman",
+    "option1": "Donald Draper",
+    "option2": "John Ashbury",
+    "option3": "Michael \"Mikey\" Wilhelm",
+    "imgsrc": "none",
+    "difficulty": "easy",
+    "subject": "Entertainment: Television"
+  },
+  {
+    "question": "What is the boss round featured in the \"Call Of Duty: Zombies\" map \"Five\"?",
+    "answer": "The Pentagon Thief",
+    "option1": "Hellhounds",
+    "option2": "Jumping Jacks",
+    "option3": "Napalm Zombie",
+    "imgsrc": "none",
+    "difficulty": "easy",
+    "subject": "Entertainment: Video Games"
+  },
+  {
+    "question": "What is the largest living species of penguin?",
+    "answer": "Emperor",
+    "option1": "King",
+    "option2": "Gentoo",
+    "option3": "Adele",
+    "imgsrc": "none",
+    "difficulty": "easy",
+    "subject": "General Knowledge"
+  },
+  {
+    "question": "In what sport is a \"shuttlecock\" used?",
+    "answer": "Badminton",
+    "option1": "Table Tennis",
+    "option2": "Rugby",
+    "option3": "Cricket",
+    "imgsrc": "none",
+    "difficulty": "easy",
+    "subject": "Sports"
+  },
+  {
+    "question": "In \"The Lord of the Rings,\" who is the owner of Asfaloth, the horse which brings Frodo to Rivendell?",
+    "answer": "Glorfindel",
+    "option1": "Arwen",
+    "option2": "Aragorn",
+    "option3": "Haldir",
+    "imgsrc": "none",
+    "difficulty": "medium",
+    "subject": "Entertainment: Books"
+  },
+  {
+    "question": "Only 9% of US Households owned a television in ",
+    "answer": "1950",
+    "option1": "1965",
+    "option2": "1913",
+    "option3": "1969",
+    "imgsrc": "none",
+    "difficulty": "medium",
+    "subject": "General Knowledge"
+  },
+  {
+    "question": "Which Animal Crossing game was for the Nintendo Wii?",
+    "answer": "Animal Crossing: City Folk",
+    "option1": "Animal Crossing: New Leaf",
+    "option2": "Animal Crossing: Wild World",
+    "option3": "Animal Crossing: Population Growing!",
+    "imgsrc": "none",
+    "difficulty": "easy",
+    "subject": "Entertainment: Video Games"
+  },
+  {
+    "question": "How many sonatas did Ludwig van Beethoven write?",
+    "answer": "32",
+    "option1": "50",
+    "option2": "31",
+    "option3": "21",
+    "imgsrc": "none",
+    "difficulty": "hard",
+    "subject": "History"
+  },
+  {
+    "question": "Which European city is known as the \"City of Light\"?",
+    "answer": "Paris",
+    "option1": "Rome",
+    "option2": "London",
+    "option3": "Madrid",
+    "imgsrc": "none",
+    "difficulty": "easy",
+    "subject": "Geography"
+  },
+  {
+    "question": "In Jeff Wayne's Musical Version of War of the Worlds, the chances of anything coming from Mars are...",
+    "answer": "A million to one",
+    "option1": "A billion to one",
+    "option2": "A trillion to one",
+    "option3": "A hundred to one",
+    "imgsrc": "none",
+    "difficulty": "medium",
+    "subject": "Entertainment: Musicals &amp; Theatres"
+  },
+  {
+    "question": "What is the real full name of Captain America?",
+    "answer": "Steven Grant Rogers ",
+    "option1": "Steven John Rogers",
+    "option2": "Steven Peggy Rogers",
+    "option3": "Steven William Rogers",
+    "imgsrc": "none",
+    "difficulty": "medium",
+    "subject": "Entertainment: Comics"
+  },
+  {
+    "question": "Which of these in the Star Trek series is NOT Klingon food?",
+    "answer": "Hors d'oeuvre",
+    "option1": "Racht",
+    "option2": "Gagh",
+    "option3": "Bloodwine",
+    "imgsrc": "none",
+    "difficulty": "hard",
+    "subject": "Entertainment: Television"
+  },
+  {
+    "question": "In Tron: Legacy, Kevin Flynn wrote a program to create the perfect system. What was the program's name?",
+    "answer": "Clu",
+    "option1": "Tron",
+    "option2": "MCP",
+    "option3": "Quorra",
+    "imgsrc": "none",
+    "difficulty": "medium",
+    "subject": "Entertainment: Film"
+  },
+  {
+    "question": "What is the real name of \"moot\", founder of the imageboard 4chan?",
+    "answer": "Christopher Poole",
+    "option1": "Mark Zuckerberg",
+    "option2": "Allison Harvard",
+    "option3": "Catie Wayne",
+    "imgsrc": "none",
+    "difficulty": "medium",
+    "subject": "Celebrities"
+  },
+  {
+    "question": "Who did Steven Gerrard win the Champions League with?",
+    "answer": "Liverpool",
+    "option1": "Real Madrid",
+    "option2": "Chelsea",
+    "option3": "Man City",
+    "imgsrc": "none",
+    "difficulty": "easy",
+    "subject": "Sports"
+  },
+  {
+    "question": "According to the American rapper Nelly, what should you do when its hot in here?",
+    "answer": "Take off all your clothes",
+    "option1": "Take a cool shower",
+    "option2": "Drink some water",
+    "option3": "Go skinny dipping",
+    "imgsrc": "none",
+    "difficulty": "easy",
+    "subject": "Entertainment: Music"
+  },
+  {
+    "question": "Who is the father of Icarus, who flew too close to the sun?",
+    "answer": "Daedalus",
+    "option1": "Minos",
+    "option2": "Perseus",
+    "option3": "Zeus",
+    "imgsrc": "none",
+    "difficulty": "medium",
+    "subject": "Mythology"
+  },
+  {
+    "question": "What is the name given to Indian food cooked over charcoal in a clay oven?",
+    "answer": "Tandoori",
+    "option1": "Biryani",
+    "option2": "Pani puri",
+    "option3": "Tiki masala",
+    "imgsrc": "none",
+    "difficulty": "medium",
+    "subject": "General Knowledge"
+  },
+  {
+    "question": "Which of the following mathematicians made major contributions to game theory?",
+    "answer": "John Von Neumann",
+    "option1": "Carl Friedrich Gauss",
+    "option2": "Leonhard Euler",
+    "option3": "Stefan Banach",
+    "imgsrc": "none",
+    "difficulty": "hard",
+    "subject": "Science: Mathematics"
+  },
+  {
+    "question": "What is an alternative name for multiple personality disorder?",
+    "answer": "Dissociative identity disorder",
+    "option1": "Body integrity identity disorder",
+    "option2": "Identity crisis",
+    "option3": "Schizophrenia",
+    "imgsrc": "none",
+    "difficulty": "medium",
+    "subject": "Science &amp; Nature"
+  },
+  {
+    "question": "Where and when was the first cardboard box made for industrial use?",
+    "answer": "England, 1817",
+    "option1": "United States, 1817",
+    "option2": "England, 1917",
+    "option3": "United States, 1917",
+    "imgsrc": "none",
+    "difficulty": "medium",
+    "subject": "History"
+  },
+  {
+    "question": "In Five Nights at Freddy's 1, how can you make Golden Freddy disappear?",
+    "answer": "Enable cameras",
+    "option1": "Turn on the light",
+    "option2": "Shut the door",
+    "option3": "Do nothing",
+    "imgsrc": "none",
+    "difficulty": "easy",
+    "subject": "Entertainment: Video Games"
+  },
+  {
+    "question": "Which of the following snipers has the highest amount of confirmed kills?",
+    "answer": "Simo H&auml;yh&auml;",
+    "option1": "Chris Kyle",
+    "option2": "Vasily Zaytsev",
+    "option3": "Craig Harrison",
+    "imgsrc": "none",
+    "difficulty": "medium",
+    "subject": "History"
+  }
+]

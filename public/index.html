@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizRacer</title>
+</head>
+
+<style>
+    body {
+        background-color: #e0fbfc;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .timerContainer {
+        height: 225px;
+        width: 300px;
+        border: 1px solid #ee6c4d;
+        border-radius: 10px;
+        position: absolute;
+        top: 200px;
+        left: 543px;
+        text-align: center;
+        padding-top: 75px;
+        font-size: 50px;
+        background-color: #293241;
+        color: #e0fbfc;
+    }
+
+    .fontIncreaser {
+        height: 229px;
+        width: 300px;
+        border: 1px solid #ee6c4d;
+        border-radius: 10px;
+        position: absolute;
+        top: 200px;
+        left: 543px;
+        text-align: center;
+        padding-top: 71px;
+        font-size: 150px;
+        background-color: #293241;
+        color: #e0fbfc;
+    }
+
+    #Questionpage {
+        height: 400px;
+        width: 900px;
+        border: 1px solid #ee6c4d;
+        border-radius: 10px;
+        background-color: #61a5c2;
+        position: relative;
+        top: 100px;
+        left: 242px;
+    }
+
+    #question {
+        display: block;
+        position: absolute;
+        margin-left: 50px;
+        font-size: 50px;
+        margin-top: 40px;
+    }
+
+    .opts {
+        height: 80px;
+        width: 400px;
+        border: 1px solid #ee6c4d;
+        border-radius: 10px;
+        background-color: #89c2d9;
+        position: relative;
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 40px;
+    }
+
+    #opt1 {
+        top: 160px;
+        left: 30px;
+
+    }
+
+    #opt2 {
+        top: 59px;
+        left: 462px;
+    }
+
+    #opt3 {
+        top: 68px;
+        left: 30px;
+    }
+
+    #opt4 {
+        top: -34px;
+        left: 462px;
+    }
+
+    .opts:hover {
+        background-color: #a7dcf3;
+        cursor: pointer;
+    }
+
+    .opts:active {
+        background-color: white;
+    }
+
+    #img {
+        height: 200px;
+        width: 260px;
+        display: inline;
+    }
+
+    #gameover {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-color: #293241;
+        color: #e0fbfc;
+        text-align: center;
+        padding-top: 100px;
+        z-index: 10;
+    }
+
+    #gameover h1 {
+        font-size: 60px;
+        color: #ee6c4d;
+        margin-bottom: 40px;
+    }
+
+    .position-entry {
+        font-size: 36px;
+        margin: 16px auto;
+    }
+
+    .position-entry span {
+        color: #ee6c4d;
+    }
+</style>
+
+<body>
+    <div id="gameover">
+        <h1>Game Over</h1>
+        <div id="results"></div>
+    </div>
+    <div id="timerContainer" class="timerContainer"></div>
+    <div id="Questionpage">
+        <div id="question"></div>
+        <div id="img"><img id="image"></div>
+        <div id="opt1" class="opts" onclick="optionClick(1)"></div>
+        <div id="opt2" class="opts" onclick="optionClick(2)"></div>
+        <div id="opt3" class="opts" onclick="optionClick(3)"></div>
+        <div id="opt4" class="opts" onclick="optionClick(4)"></div>
+    </div>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        let Questionpage = document.getElementById("Questionpage");
+        let questionTag = document.getElementById("question");
+        let opt1 = document.getElementById("opt1");
+        let opt2 = document.getElementById("opt2");
+        let opt3 = document.getElementById("opt3");
+        let opt4 = document.getElementById("opt4");
+        let img = document.getElementById("img");
+        let image = document.getElementById("image");
+        let timerContainer = document.getElementById("timerContainer");
+        let started = true;
+        let socket = io.connect('http://localhost:5023/');
+        let score = 0
+        let streak = 0
+        let questionNo = 0
+        let arr2 = {}
+        //socket.emit
+
+        socket.on('timer', (time) => {
+            timerContainer.style.zIndex = "1"
+            let timeleft = time;
+            let timer = setInterval(function () {
+                if (timeleft <= 0) {
+                    clearInterval(timer);
+                    timerContainer.style.zIndex = "-1"
+                }
+                timerContainer.innerHTML = timeleft;
+                timerContainer.classList.add("fontIncreaser");
+                timerContainer.classList.remove("timerContainer");
+                timeleft -= 1;
+            }, 1000);
+        })
+
+        socket.on('beforetimer', () => {
+            timerContainer.style.zIndex = "1"
+            timerContainer.innerHTML = "waiting for players...";
+            timerContainer.classList.remove("fontIncreaser");
+            timerContainer.classList.add("timerContainer");
+        })
+
+        socket.on("quest", (data) => {
+            questionNo++;
+            questionTag.innerHTML = data.question;
+            if (data.imgsrc != "none") {
+                Questionpage.style.height = "600px"
+                img.style.height = "180px"
+                img.style.width = "250px"
+                image.style.height = "180px"
+                image.style.width = "250px"
+                img.style.display = "block"
+                img.style.position = "relative"
+                img.style.top = "150px"
+                img.style.left = "325px"
+                image.src = data.imgsrc
+                image.alt = data.imgsrc + " " + data.answer
+            }
+            else {
+                Questionpage.style.height = "400px"
+            }
+
+            let arr = [data.answer, data.option1, data.option2, data.option3]
+            arr2 = arr
+            answer = data.answer
+            shuffle(arr)
+            opt1.innerHTML = arr[0]
+            opt2.innerHTML = arr[1]
+            opt3.innerHTML = arr[2]
+            opt4.innerHTML = arr[3]
+        })
+
+        socket.on("score", (ob) => {
+            console.log(ob)
+        })
+
+        socket.on("gameover", (sorted) => {
+            const medals = ['🥇', '🥈', '🥉'];
+            let html = '';
+            sorted.forEach((player, i) => {
+                const medal = medals[i] || (i + 1) + '.';
+                html += `<div class="position-entry">${medal} <span>${player.name}</span> — ${player.score} / 15</div>`;
+            });
+            document.getElementById('results').innerHTML = html;
+            document.getElementById('gameover').style.display = 'block';
+        })
+        function shuffle(array) {
+            array.sort(() => Math.random() - 0.5);
+        }
+
+        function optionClick(n) {
+            if (arr2[n - 1] == answer) {
+                score++;
+                streak++;
+                //streak to be completed
+
+            }
+            else {
+                streak = 0;
+            }
+            socket.emit("nextQuest", ({ "score": score, "qno": questionNo }))
+        }
+    </script>
+
+</body>
+
+</html>
