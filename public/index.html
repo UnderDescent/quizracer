@@ -137,9 +137,47 @@
     .position-entry span {
         color: #ee6c4d;
     }
+
+    #liveLeaderboard {
+        width: 900px;
+        border: 1px solid #ee6c4d;
+        border-radius: 10px;
+        background-color: #61a5c2;
+        position: relative;
+        top: 130px;
+        left: 242px;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    #liveLeaderboard h2 {
+        margin: 0 0 12px 0;
+        color: #293241;
+        font-size: 36px;
+    }
+
+    #roundTimeBadge {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 20;
+        padding: 12px 18px;
+        border: 1px solid #ee6c4d;
+        border-radius: 10px;
+        background-color: #293241;
+        color: #e0fbfc;
+        font-size: 26px;
+    }
+
+    #liveResults .position-entry {
+        font-size: 28px;
+        margin: 10px 0;
+        color: #293241;
+    }
 </style>
 
 <body>
+    <div id="roundTimeBadge">Round Time: --</div>
     <div id="gameover">
         <h1>Game Over</h1>
         <div id="results"></div>
@@ -152,6 +190,10 @@
         <div id="opt2" class="opts" onclick="optionClick(2)"></div>
         <div id="opt3" class="opts" onclick="optionClick(3)"></div>
         <div id="opt4" class="opts" onclick="optionClick(4)"></div>
+    </div>
+    <div id="liveLeaderboard">
+        <h2>Leaderboard</h2>
+        <div id="liveResults"></div>
     </div>
 
 
@@ -166,8 +208,17 @@
         let img = document.getElementById("img");
         let image = document.getElementById("image");
         let timerContainer = document.getElementById("timerContainer");
+        let resultsTag = document.getElementById('results');
+        let liveResultsTag = document.getElementById('liveResults');
+        let roundTimeBadgeTag = document.getElementById('roundTimeBadge');
+        let gameOverTag = document.getElementById('gameover');
         let started = true;
-        let socket = io.connect('http://localhost:5023/');
+        let clientId = localStorage.getItem('quizracerClientId');
+        if (!clientId) {
+            clientId = 'guest-' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+            localStorage.setItem('quizracerClientId', clientId);
+        }
+        let socket = io({ auth: { clientId: clientId } });
         let score = 0
         let streak = 0
         let questionNo = 0
@@ -196,9 +247,18 @@
             timerContainer.classList.add("timerContainer");
         })
 
+        socket.on("resumeState", (state) => {
+            score = state.score || 0;
+            questionNo = state.qno || 0;
+        })
+
+        socket.on("roundTimer", (seconds) => {
+            roundTimeBadgeTag.innerHTML = `Round Time: ${seconds}s`;
+        })
+
         socket.on("quest", (data) => {
             questionNo++;
-            questionTag.innerHTML = data.question;
+            questionTag.innerHTML = `Q${questionNo}. ${data.question}`;
             if (data.imgsrc != "none") {
                 Questionpage.style.height = "600px"
                 img.style.height = "180px"
@@ -226,19 +286,28 @@
             opt4.innerHTML = arr[3]
         })
 
-        socket.on("score", (ob) => {
-            console.log(ob)
+        function renderLeaderboard(sorted) {
+            const currentPlayer = sorted.find(player => player.id === socket.id);
+            const otherPlayers = sorted.filter(player => player.id !== socket.id);
+            const displayList = currentPlayer ? [currentPlayer, ...otherPlayers] : sorted;
+            const medals = ['🥇', '🥈', '🥉'];
+            let html = '';
+            displayList.forEach((player, i) => {
+                const medal = medals[i] || (i + 1) + '.';
+                const youLabel = player.id === socket.id ? ' (you)' : '';
+                html += `<div class="position-entry">${medal} <span>${player.name}${youLabel}</span> — ${player.score} / 15</div>`;
+            });
+            resultsTag.innerHTML = html;
+            liveResultsTag.innerHTML = html;
+        }
+
+        socket.on("leaderboard", (sorted) => {
+            renderLeaderboard(sorted);
         })
 
         socket.on("gameover", (sorted) => {
-            const medals = ['🥇', '🥈', '🥉'];
-            let html = '';
-            sorted.forEach((player, i) => {
-                const medal = medals[i] || (i + 1) + '.';
-                html += `<div class="position-entry">${medal} <span>${player.name}</span> — ${player.score} / 15</div>`;
-            });
-            document.getElementById('results').innerHTML = html;
-            document.getElementById('gameover').style.display = 'block';
+            renderLeaderboard(sorted);
+            gameOverTag.style.display = 'block';
         })
         function shuffle(array) {
             array.sort(() => Math.random() - 0.5);
