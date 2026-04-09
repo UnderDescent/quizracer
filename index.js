@@ -1,5 +1,8 @@
+const fs = require('fs');
+const https = require('https');
 let express = require('express');
 let socket = require('socket.io');
+
 let connectedCount = 0;
 let guestCounter = 0;
 let notStarted = true;
@@ -10,8 +13,14 @@ let gameEnded = false;
 
 //app setup
 let app = express();
-let server = app.listen(5023, () => {
-    console.log("Listening on 5023");
+const privateKey = fs.readFileSync('server.key', 'utf8');
+const certificate = fs.readFileSync('server.cert', 'utf8');
+const credentials = { key: privateKey, cert: certificate };
+
+// Listen on all network interfaces (your local IP)
+let server = https.createServer(credentials, app);
+server.listen(5023, '127.0.0.1', () => {
+    console.log("Listening on https://localhost:5023");
 });
 
 //static files
@@ -196,6 +205,3 @@ function timeSender(x, n) {
         io.to(n).emit('timer', timeleft)
     }
 }
-
-
-

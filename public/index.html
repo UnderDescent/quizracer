@@ -213,12 +213,14 @@
         let roundTimeBadgeTag = document.getElementById('roundTimeBadge');
         let gameOverTag = document.getElementById('gameover');
         let started = true;
+        // Connect to the specific IP over HTTPS
+        let socket = io();
         let clientId = localStorage.getItem('quizracerClientId');
         if (!clientId) {
             clientId = 'guest-' + Math.random().toString(36).slice(2) + Date.now().toString(36);
             localStorage.setItem('quizracerClientId', clientId);
         }
-        let socket = io({ auth: { clientId: clientId } });
+        // let socket = io({ auth: { clientId: clientId } });
         let score = 0
         let streak = 0
         let questionNo = 0
