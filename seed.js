@@ -17,7 +17,7 @@ function decodeHTML(str) {
         .replace(/&ndash;/g, '–');
 }
 
-https.get('https://opentdb.com/api.php?amount=37&type=multiple', (res) => {
+https.get('https://opentdb.com/api.php?amount=37&type=multiple&difficulty=easy', (res) => {
     let data = '';
     res.on('data', chunk => data += chunk);
     res.on('end', () => {
